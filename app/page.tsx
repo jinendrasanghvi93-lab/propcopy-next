@@ -51,7 +51,7 @@ Respond ONLY with a valid JSON object — no markdown, no backticks, no extra te
         body: JSON.stringify({ model: "claude-sonnet-4-20250514", max_tokens: 1600, messages: [{ role: "user", content: prompt }] })
       });
       const data = await res.json();
-      const text = (data.content || []).map((b) => b.text || "").join("");
+      const text = (data.content || []).map((b: any) =>
       const clean = text.replace(/```json\n?|```\n?/g, "").trim();
       setOutput(JSON.parse(clean));
       setActiveTab("mls");
