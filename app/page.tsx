@@ -52,7 +52,7 @@ Respond ONLY with a valid JSON object — no markdown, no backticks, no extra te
       });
       const data = await res.json();
       const text = (data.content || []).map((b: any) =>
-      const clean = text.replace(/```json\n?|```\n?/g, "").trim();
+      const clean = text.replace(/```json|```/g, "").trim();
       setOutput(JSON.parse(clean));
       setActiveTab("mls");
     } catch (e) {
